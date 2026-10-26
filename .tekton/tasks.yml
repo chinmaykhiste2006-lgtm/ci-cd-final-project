@@ -14,7 +14,7 @@ spec:
       script: |
         #!/bin/sh
         set -eu
-        find "$WORKSPACE_SOURCE_PATH" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+        rm -rf "${WORKSPACE_SOURCE_PATH:?}/"* "${WORKSPACE_SOURCE_PATH:?}/".[!.]* "${WORKSPACE_SOURCE_PATH:?}/"..?*
 
 ---
 apiVersion: tekton.dev/v1
